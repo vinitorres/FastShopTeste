@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="tG9-LN-e2c" customClass="MovieCollectionViewCell" customModule="SkyTeste" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="223" height="330"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOT-eS-t2D">
+                    <rect key="frame" x="0.0" y="0.0" width="223" height="330"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rj3-gT-rG7">
+                            <rect key="frame" x="0.0" y="0.0" width="223" height="290"/>
+                        </imageView>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opk-0Y-UIr">
+                            <rect key="frame" x="0.0" y="290" width="223" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tg5-L9-1DW">
+                                    <rect key="frame" x="0.0" y="11" width="223" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="tg5-L9-1DW" firstAttribute="leading" secondItem="opk-0Y-UIr" secondAttribute="leading" id="Odb-m9-sRM"/>
+                                <constraint firstItem="tg5-L9-1DW" firstAttribute="centerY" secondItem="opk-0Y-UIr" secondAttribute="centerY" id="Tbd-hL-M25"/>
+                                <constraint firstAttribute="height" constant="40" id="buP-Pc-fgC"/>
+                                <constraint firstAttribute="trailing" secondItem="tg5-L9-1DW" secondAttribute="trailing" id="edb-UW-941"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="Rj3-gT-rG7" secondAttribute="trailing" id="3HU-uG-MOQ"/>
+                        <constraint firstItem="Rj3-gT-rG7" firstAttribute="top" secondItem="NOT-eS-t2D" secondAttribute="top" id="ENd-6f-CKh"/>
+                        <constraint firstItem="opk-0Y-UIr" firstAttribute="top" secondItem="Rj3-gT-rG7" secondAttribute="bottom" id="FbZ-SP-a9v"/>
+                        <constraint firstAttribute="trailing" secondItem="opk-0Y-UIr" secondAttribute="trailing" id="HSg-jl-xBE"/>
+                        <constraint firstItem="Rj3-gT-rG7" firstAttribute="leading" secondItem="NOT-eS-t2D" secondAttribute="leading" id="IGv-wd-tP5"/>
+                        <constraint firstItem="opk-0Y-UIr" firstAttribute="leading" secondItem="NOT-eS-t2D" secondAttribute="leading" id="On5-nR-ZRc"/>
+                        <constraint firstAttribute="bottom" secondItem="opk-0Y-UIr" secondAttribute="bottom" id="n9f-pS-vIv"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstItem="NOT-eS-t2D" firstAttribute="top" secondItem="tG9-LN-e2c" secondAttribute="top" id="30Z-xK-CMu"/>
+                <constraint firstAttribute="trailing" secondItem="NOT-eS-t2D" secondAttribute="trailing" id="Frz-D5-rEY"/>
+                <constraint firstAttribute="bottom" secondItem="NOT-eS-t2D" secondAttribute="bottom" id="n2T-de-3I1"/>
+                <constraint firstItem="NOT-eS-t2D" firstAttribute="leading" secondItem="tG9-LN-e2c" secondAttribute="leading" id="xC4-p9-b60"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="Jmi-de-e6D"/>
+            <connections>
+                <outlet property="movieIV" destination="Rj3-gT-rG7" id="b2j-su-iHZ"/>
+                <outlet property="tituloLbl" destination="tg5-L9-1DW" id="Lya-zq-7a8"/>
+            </connections>
+            <point key="canvasLocation" x="-82.400000000000006" y="197.9010494752624"/>
+        </view>
+    </objects>
+</document>
