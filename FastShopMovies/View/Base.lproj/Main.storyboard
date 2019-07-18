@@ -225,6 +225,8 @@
                         <outlet property="closeBtn" destination="Zan-F4-rNF" id="eMu-fq-tn5"/>
                         <outlet property="coverIV" destination="uxC-T3-ra8" id="W8n-T8-3vs"/>
                         <outlet property="overviewLbl" destination="VTk-CL-SnG" id="Cxf-KZ-iWa"/>
+                        <outlet property="overviewPlaceholderLbl" destination="RGD-6T-3DA" id="MFb-0P-8dd"/>
+                        <outlet property="releaseDatePlaceholderLbl" destination="jXw-4H-iz5" id="xNB-MD-g2i"/>
                         <outlet property="titleLbl" destination="KE9-Hf-eQk" id="x4O-K4-0ag"/>
                         <outlet property="yearLbl" destination="c8k-m9-kBj" id="Skz-0E-WRs"/>
                     </connections>

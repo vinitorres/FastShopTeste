@@ -1,0 +1,13 @@
+//*************************
+// Genres
+//*************************
+
+"NAVIGATION_TITLE" = "Genres";
+
+//*************************
+// Movie Details
+//*************************
+
+"RELEASE_DATE" = "Release date";
+"OVERVIEW" = "Overview";
+
