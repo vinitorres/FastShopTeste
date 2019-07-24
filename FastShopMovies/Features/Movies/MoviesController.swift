@@ -68,7 +68,7 @@ class MoviesController: UIViewController {
     
 }
 
-extension MoviesController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
+extension MoviesController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -94,7 +94,11 @@ extension MoviesController: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "MovieDetails") as! MovieDetailsController
+        guard let controller = storyboard.instantiateViewController(
+            withIdentifier: "MovieDetails") as? MovieDetailsController
+            else {
+            fatalError("instantiateViewController failed while casting")
+        }
         controller.movieDetailsViewModel = MovieDetailsViewModel.init(withMovie: moviesViewModel.getMovie(withIndex: indexPath))
         self.present(controller, animated: true, completion: nil)
     }
@@ -117,4 +121,3 @@ extension MoviesController: UIScrollViewDelegate {
         }
     }
 }
-

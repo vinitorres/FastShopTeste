@@ -12,9 +12,9 @@ import Alamofire
 
 class Services {
     
-    static func getMovies(withGenreID id:Int,currentPage page:Int, onComplete: @escaping ([Movie]) -> ()) {
+    static func getMovies(withGenreID id: Int, currentPage page: Int, onComplete: @escaping ([Movie]) -> Void) {
         
-        var url = Constants.ServiceUrl.MOVIES_FOR_GENRE
+        var url = Constants.ServiceUrl.moviesForGenre
         url = url.replacingOccurrences(of: "{page}", with: page.description)
         url = url.replacingOccurrences(of: "{genreID}", with: id.description)
         
@@ -24,7 +24,8 @@ class Services {
             
             if let resultData = response.data {
                 
-                let jsonObject = try! JSON(data: resultData)
+                guard let jsonObject = try? JSON(data: resultData)
+                    else { return }
                 
                 if let arrayMovies = jsonObject["results"].arrayObject {
                     for movieObject in arrayMovies {
@@ -39,9 +40,9 @@ class Services {
         
     }
     
-    static func getGenres(onComplete: @escaping ([Genre]) -> ()) {
+    static func getGenres(onComplete: @escaping ([Genre]) -> Void) {
         
-        let url = Constants.ServiceUrl.GENRES
+        let url = Constants.ServiceUrl.genres
         
         Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseJSON(completionHandler: { response in
             
@@ -49,7 +50,7 @@ class Services {
             
             if let resultData = response.data {
                 
-                let jsonObject = try! JSON(data: resultData)
+                guard let jsonObject = try? JSON(data: resultData) else { return }
                 
                 if let arrayGenres = jsonObject["genres"].arrayObject {
                     for genreObject in arrayGenres {

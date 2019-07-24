@@ -24,7 +24,7 @@ class GenresViewModel: NSObject {
     func loadGenres(onComplete: @escaping (_ success: Bool) -> Void) {
         
         Services.getGenres(onComplete: { result in
-            if result.count == 0 {
+            if result.isEmpty {
                 onComplete(false)
             } else {
                 self.genreList = result
@@ -49,6 +49,5 @@ class GenresViewModel: NSObject {
         return cell
         
     }
-    
     
 }

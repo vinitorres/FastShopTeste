@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2420FFED22E84ECB008FF40F /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 2420FFEC22E84ECA008FF40F /* .swiftlint.yml */; };
 		2471EDC622E065070004A2F7 /* GenresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2471EDC522E065070004A2F7 /* GenresViewModel.swift */; };
 		2471EDCC22E0ECC80004A2F7 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2471EDCB22E0ECC80004A2F7 /* MoviesViewModel.swift */; };
 		2471EDCE22E0ECE70004A2F7 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2471EDCD22E0ECE70004A2F7 /* MovieDetailsViewModel.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		02CAF89C5EEF5FC5C8B838AF /* Pods_FastShopMovies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FastShopMovies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E8680149AEB379AD5D8B37B /* Pods-FastShopMovies.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastShopMovies.debug.xcconfig"; path = "Target Support Files/Pods-FastShopMovies/Pods-FastShopMovies.debug.xcconfig"; sourceTree = "<group>"; };
+		2420FFEC22E84ECA008FF40F /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		2471EDC522E065070004A2F7 /* GenresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresViewModel.swift; sourceTree = "<group>"; };
 		2471EDCB22E0ECC80004A2F7 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		2471EDCD22E0ECE70004A2F7 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		2481591B22DD150500BDECA3 /* FastShopMovies */ = {
 			isa = PBXGroup;
 			children = (
+				2420FFEC22E84ECA008FF40F /* .swiftlint.yml */,
 				2481591C22DD150500BDECA3 /* AppDelegate.swift */,
 				2481592322DD150900BDECA3 /* Assets.xcassets */,
 				2481592822DD150900BDECA3 /* Info.plist */,
@@ -239,6 +242,7 @@
 				2481591622DD150500BDECA3 /* Frameworks */,
 				2481591722DD150500BDECA3 /* Resources */,
 				A8E84081CA3560782FBC2486 /* [CP] Embed Pods Frameworks */,
+				2420FFE922E84740008FF40F /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -288,6 +292,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2420FFED22E84ECB008FF40F /* .swiftlint.yml in Resources */,
 				2471EDD522E116A20004A2F7 /* Localizable.strings in Resources */,
 				2481592422DD150900BDECA3 /* Assets.xcassets in Resources */,
 				2481594422DD168200BDECA3 /* Main.storyboard in Resources */,
@@ -299,6 +304,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2420FFE922E84740008FF40F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		4E9094CE3FBB9268CCAD673F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

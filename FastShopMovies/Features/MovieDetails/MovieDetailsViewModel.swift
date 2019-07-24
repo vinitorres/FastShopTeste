@@ -35,7 +35,7 @@ class MovieDetailsViewModel: NSObject {
     }
     
     func getMovieReleaseDate() -> String {
-        return movie.release_date
+        return movie.releaseDate
     }
     
     func getMovieOverview() -> String {
@@ -43,10 +43,10 @@ class MovieDetailsViewModel: NSObject {
     }
     
     func getMoviePosterUrl() -> String {
-        return movie.poster_path
+        return movie.posterPath
     }
     
-    func getMovieImage(forImageView imageView: UIImageView,withUrl url:String) -> UIImage {
+    func getMovieImage(forImageView imageView: UIImageView, withUrl url: String) -> UIImage {
         
         imageView.kf.indicatorType = .activity
         imageView.kf.indicator?.view.tintColor  = .white
@@ -54,7 +54,7 @@ class MovieDetailsViewModel: NSObject {
         var coverImage = UIImage()
         let placeholderImage = UIImage(named: "movie_placeholder")
         
-        var urlString = Constants.ServiceUrl.MOVIE_IMAGE
+        var urlString = Constants.ServiceUrl.movieImage
         urlString = urlString.replacingOccurrences(of: "{file_path}", with: url)
         
         imageView.kf.indicator?.startAnimatingView()
@@ -72,4 +72,3 @@ class MovieDetailsViewModel: NSObject {
     }
     
 }
-

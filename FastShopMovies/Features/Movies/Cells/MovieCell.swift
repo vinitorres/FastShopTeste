@@ -21,7 +21,6 @@ class MovieCell: UICollectionViewCell {
     func resetValues() {
         self.tituloLbl.text = ""
         self.movieIV.image = nil
-        
     }
     
     func prepare(withMovie movie: Movie) {

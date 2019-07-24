@@ -22,10 +22,10 @@ class MovieCellViewModel: NSObject {
     }
     
     func getMovieBackdropUrl() -> String {
-        return movie.backdrop_path
+        return movie.backdropPath
     }
     
-    func getMovieImage(forImageView imageView: UIImageView, withUrl url:String) -> UIImage {
+    func getMovieImage(forImageView imageView: UIImageView, withUrl url: String) -> UIImage {
         
         imageView.kf.indicatorType = .activity
         imageView.kf.indicator?.view.tintColor  = .white
@@ -33,7 +33,7 @@ class MovieCellViewModel: NSObject {
         var coverImage = UIImage()
         let placeholderImage = UIImage(named: "movie_placeholder")
         
-        var urlString = Constants.ServiceUrl.MOVIE_IMAGE
+        var urlString = Constants.ServiceUrl.movieImage
         urlString = urlString.replacingOccurrences(of: "{file_path}", with: url)
         
         imageView.kf.indicator?.startAnimatingView()

@@ -22,10 +22,10 @@ class MoviesViewModel: NSObject {
         return moviesList.count
     }
     
-    func loadMovies(forGenre genre:Genre, currentPage page: Int ,onComplete: @escaping (_ success: Bool) -> Void) {
+    func loadMovies(forGenre genre: Genre, currentPage page: Int, onComplete: @escaping (_ success: Bool) -> Void) {
         
         Services.getMovies(withGenreID: genre.id, currentPage: page, onComplete: { result in
-            if result.count == 0 {
+            if result.isEmpty {
                 onComplete(false)
             } else {
                 for movie in result {
@@ -46,7 +46,12 @@ class MoviesViewModel: NSObject {
     }
     
     func cellForRow(at indexPath: IndexPath, from collectionView: UICollectionView) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieCell
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "MovieCell",
+            for: indexPath) as? MovieCell
+            else {
+                fatalError("DequeueReusableCell failed while casting")
+        }
         cell.prepare(withMovie: moviesList[indexPath.row])
         return cell
     }
@@ -56,4 +61,3 @@ class MoviesViewModel: NSObject {
     }
     
 }
-

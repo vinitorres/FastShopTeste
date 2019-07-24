@@ -53,7 +53,11 @@ extension GenresController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let controller = self.storyboard?.instantiateViewController(withIdentifier: "Movies") as! MoviesController
+        guard let controller = self.storyboard?.instantiateViewController(
+            withIdentifier: "Movies") as? MoviesController
+            else {
+            fatalError("instantiateViewController failed while casting")
+        }
         controller.selectedGenre = genresViewModel.getGenre(withIndex: indexPath.row)
         self.show(controller, sender: nil)
     }
