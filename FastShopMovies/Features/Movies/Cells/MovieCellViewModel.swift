@@ -11,7 +11,7 @@ import Kingfisher
 
 class MovieCellViewModel: NSObject {
 
-    var movie = Movie()
+    var movie: Movie!
     
     init(withMovie movie: Movie) {
         self.movie = movie

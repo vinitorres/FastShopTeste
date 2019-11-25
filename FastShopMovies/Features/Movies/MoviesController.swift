@@ -18,27 +18,37 @@ class MoviesController: UIViewController {
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 16.0, bottom: 0, right: 16.0)
     fileprivate let itemsPerRow: CGFloat = 2
     
-    var moviesViewModel = MoviesViewModel()
+    //*************************************************
+    // MARK: - Public Properties
+    //*************************************************
     
-    let refreshControl = UIRefreshControl()
+    var moviesViewModel = MoviesViewModel()
+    var selectedGenre: Genre!
 
-    var selectedGenre = Genre()
-    var currentPage = 1
-    var loadingMoreMovies = false
+    //*************************************************
+    // MARK: - Private Properties
+    //*************************************************
+    
+    private let refreshControl = UIRefreshControl()
+    private var currentPage = 1
+    private var loadingMoreMovies = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = selectedGenre.name
         
+        // ScrollView
         scrollView.alwaysBounceVertical = true
         scrollView.bounces  = true
         refreshControl.addTarget(self, action: #selector(refreshMovies), for: .valueChanged)
         self.scrollView.addSubview(refreshControl)
         
+        // CollectionView
         self.collectionView.register(UINib(nibName: "MovieCell", bundle: nil), forCellWithReuseIdentifier: "MovieCell")
         self.collectionView.contentInset = sectionInsets
         
+        // Load Data
         self.loadData()
         
     }
@@ -99,8 +109,14 @@ extension MoviesController: UICollectionViewDelegate, UICollectionViewDataSource
             else {
             fatalError("instantiateViewController failed while casting")
         }
-        controller.movieDetailsViewModel = MovieDetailsViewModel.init(withMovie: moviesViewModel.getMovie(withIndex: indexPath))
-        self.present(controller, animated: true, completion: nil)
+        
+        controller.movieDetailsViewModel =
+            MovieDetailsViewModel.init(withMovie: moviesViewModel.getMovie(
+                withIndex: indexPath))
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

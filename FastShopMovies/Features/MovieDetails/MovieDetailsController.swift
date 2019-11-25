@@ -11,6 +11,10 @@ import Kingfisher
 
 class MovieDetailsController: UIViewController {
     
+    //*************************************************
+    // MARK: - Outlets
+    //*************************************************
+    
     @IBOutlet weak var releaseDatePlaceholderLbl: UILabel!
     @IBOutlet weak var overviewPlaceholderLbl: UILabel!
 
@@ -20,27 +24,36 @@ class MovieDetailsController: UIViewController {
     @IBOutlet weak var yearLbl: UILabel!
     @IBOutlet weak var overviewLbl: UILabel!
 
-    var movieDetailsViewModel: MovieDetailsViewModel = MovieDetailsViewModel()
+    //*************************************************
+    // MARK: - Public Properties
+    //*************************************************
+    
+    var movieDetailsViewModel: MovieDetailsViewModel!
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.closeBtn.layer.cornerRadius = self.closeBtn.frame.size.height/2
         translateViews()
         setupView()
-        
     }
     
-    func translateViews() {
+    //*************************************************
+    // MARK: - Private Methods
+    //*************************************************
+
+    private func translateViews() {
         self.releaseDatePlaceholderLbl.text = movieDetailsViewModel.setReleaseDatePlaceholder()
         self.overviewPlaceholderLbl.text = movieDetailsViewModel.setOverviewPlaceholder()
     }
     
-    func setupView() {
+    private func setupView() {
         self.titleLbl.text = movieDetailsViewModel.getMovieTitle()
         self.yearLbl.text = movieDetailsViewModel.getMovieReleaseDate()
         self.overviewLbl.text = movieDetailsViewModel.getMovieOverview()
-        self.coverIV.image = movieDetailsViewModel.getMovieImage(forImageView: self.coverIV, withUrl: movieDetailsViewModel.getMoviePosterUrl())
+        self.coverIV.image =
+            movieDetailsViewModel.getMovieImage(
+                forImageView: self.coverIV,
+                withUrl: movieDetailsViewModel.getMoviePosterUrl())
     }
     
     @IBAction func close(_ sender: Any) {

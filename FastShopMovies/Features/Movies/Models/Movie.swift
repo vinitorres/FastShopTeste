@@ -11,6 +11,10 @@ import SwiftyJSON
 
 class Movie: NSObject {
     
+    //*************************************************
+    // MARK: - Public Properties
+    //*************************************************
+    
     var id: Int64 = 0
     var title: String = ""
     var overview: String = ""
@@ -18,9 +22,9 @@ class Movie: NSObject {
     var posterPath: String = ""
     var backdropPath: String = ""
 
-    override init() {
-        
-    }
+    //*************************************************
+    // MARK: - Inits
+    //*************************************************
     
     init(json: JSON) {
         

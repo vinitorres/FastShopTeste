@@ -12,11 +12,7 @@ import Kingfisher
 
 class MovieDetailsViewModel: NSObject {
     
-    var movie = Movie()
-    
-    override init() {
-
-    }
+    let movie: Movie!
     
     init(withMovie movie: Movie) {
         self.movie = movie

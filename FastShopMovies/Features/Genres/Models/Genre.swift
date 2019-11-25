@@ -9,12 +9,12 @@
 import UIKit
 import SwiftyJSON
 
-class Genre: NSObject {
+class Genre {
     
     var id: Int = 0
     var name: String = ""
     
-    override init() {
+    init() {
         
     }
     

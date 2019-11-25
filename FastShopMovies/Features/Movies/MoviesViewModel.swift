@@ -14,6 +14,10 @@ class MoviesViewModel: NSObject {
     var moviesList: [Movie] = []
     var loadingMoreMovies = false
     
+    //*************************************************
+    // MARK: - Public Methods
+    //*************************************************
+    
     func getMovie(withIndex index: IndexPath) -> Movie {
         return moviesList[index.row]
     }
@@ -23,7 +27,6 @@ class MoviesViewModel: NSObject {
     }
     
     func loadMovies(forGenre genre: Genre, currentPage page: Int, onComplete: @escaping (_ success: Bool) -> Void) {
-        
         Services.getMovies(withGenreID: genre.id, currentPage: page, onComplete: { result in
             if result.isEmpty {
                 onComplete(false)
@@ -34,7 +37,6 @@ class MoviesViewModel: NSObject {
                 onComplete(true)
             }
         })
-        
     }
     
     func numberOfSections() -> Int {
